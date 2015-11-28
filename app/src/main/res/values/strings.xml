@@ -7,4 +7,5 @@
     <string name="release_date">Release date</string>
     <string name="sort_by_popular">Sort by popular</string>
     <string name="sort_by_rating">Sort by rating</string>
+    <string name="title_activity_detail_movie_actibity">Detail</string>
 </resources>

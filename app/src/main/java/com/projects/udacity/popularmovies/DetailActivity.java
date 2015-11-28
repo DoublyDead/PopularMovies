@@ -1,20 +1,20 @@
 package com.projects.udacity.popularmovies;
 
+
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
+
+
+
+
+
 
     ImageView posterIv;
     ListView information;
@@ -26,6 +26,13 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if(toolbar != null){
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         String title = getIntent().getStringExtra("title");
         String poster = getIntent().getStringExtra("poster");
@@ -52,4 +59,20 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return false;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }
