@@ -22,6 +22,6 @@ public final class UrlConstant {
     public static final String TOP_RATED_PARAM = "top_rated_p";
     public static final String POPULAR_PARAM = "popular_p";
     public static final String API_PREFIX_PARAM = "api_key_p";
-    public static final String API = "ba8e13b5ff8710af10df4fa43b1c8c73";
+    public static final String API = "ba8e1..........8c73"; //NOTE: Enter your API
 
 }
