@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="title_activity_detail">Details</string>
+    <string name="title">Title</string>
+    <string name="overview">Overview:</string>
+    <string name="overage_vote">Overage vote:</string>
+    <string name="release_date">Release date</string>
+    <string name="sort_by_popular">Sort by popular</string>
+    <string name="sort_by_rating">Sort by rating</string>
+</resources>

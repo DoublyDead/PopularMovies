@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:title="sort"
+        android:id="@+id/sort_btn"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menuSortPopular"
+                android:title="Sort by popular" />
+            <item
+                android:id="@+id/menuSortRating"
+                android:title="Sort by rating" />
+        </menu>
+    </item>
+
+</menu>
