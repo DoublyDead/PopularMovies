@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        JSONState = (String) getLastNonConfigurationInstance();
         setContentView(R.layout.activity_main);
         fetchData = new FetchData();
         gridView = (GridView) findViewById(R.id.grid_view);
@@ -54,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     e.printStackTrace();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 break;
             case R.id.menuSortRating:
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
@@ -83,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         super.onResume();
@@ -125,12 +130,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(intent);
     }
 
-    public void getServerInformation(String query) throws JSONException, ExecutionException, InterruptedException {
+    public void getServerInformation(String query) throws Exception {
         JSONState = query;
         FetchData fetchData = new FetchData();
         fetchData.execute(query);
         String Json = fetchData.get();
-        movies = JSONParser.parseJson(Json);
+        movies = JSONParser.parseJson(Json, getApplication());
         gridView.setAdapter(new SampleGridViewAdapter(this, movies));
     }
 }

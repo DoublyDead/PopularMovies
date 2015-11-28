@@ -10,12 +10,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
-
-
-
-
-
-
     ImageView posterIv;
     ListView information;
     ArrayList<DetailInformation>detailInformations;
