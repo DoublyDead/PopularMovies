@@ -1,6 +1,7 @@
 package com.projects.udacity.popularmovies;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,16 +20,18 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
+    private static String JSONSaved = "saved_json";
     public String JSONState;
     ArrayList<GridItem> movies;
     GridView gridView;
-    FetchData fetchData;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fetchData = new FetchData();
+        sp = getPreferences(MODE_PRIVATE);
+        JSONState = sp.getString(JSONSaved, UrlConstant.POPULAR);
         gridView = (GridView) findViewById(R.id.grid_view);
         gridView.setOnItemClickListener(this);
     }
@@ -72,6 +75,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        sp = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sp.edit();
+        ed.putString(JSONSaved, JSONState);
+        ed.commit();
+        super.onDestroy();
     }
 
     @Override
